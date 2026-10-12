@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Echecs VS ordinateur</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Bienvenue sur ce jeu d'échec en ligne !</h1>
+            <h4>Pour jouer hors ligne contre l'ordinateur.</h4>
+        </header>
+        <div class="vspace"></div>
+        
+        <main>
+            <div>
+                <input type="text" value="IA" id="blackName">
+                <div id="presentation"></div>
+                <input type="text" value="blancs" id="whiteName">
+            </div>
+            <div class="hspace"></div>
+            <div>
+                <div id="iaInfo" role="status" aria-live="polite"></div>
+                <div id="historiqueCoups"></div>
+                <br />
+                <button type="button" id="copierPgn">Copier le PGN</button>
+                <button type="rejouer" id="rejouer" onclick="location.reload()">Rejouer</button>
+            </div>
+        </main>
+
+        <div class="vspace"></div>
+
+        <script type="module" src="./JavaScript/main.js"></script>
+
+        <div id="promotion">
+            <div class="prPiece">
+                <div class="cavalier blanc">&#9816;</div>
+                <div class="cavalier noir">&#9822;</div>
+            </div>
+            <div class="prPiece">
+                <div class="fou blanc">&#9815;</div>
+                <div class="fou noir">&#9821;</div>
+            </div>
+            <div class="prPiece">
+                <div class="tour blanc">&#9814;</div>
+                <div class="tour noir">&#9820;</div>
+            </div>
+            <div class="prPiece">
+                <div class="dame blanc">&#9813;</div>
+                <div class="dame noir">&#9819;</div>
+            </div>
+        </div>
+    </body>
+</html>
