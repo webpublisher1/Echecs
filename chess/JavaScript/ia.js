@@ -6,7 +6,7 @@ const PIECE_VALUES = {
     f: 330,
     t: 500,
     d: 900,
-    r: 0
+    r: 10000
 };
 const MATE_SCORE = 100000;
 
@@ -259,7 +259,7 @@ function moveOrderScore(position, move) {
 
 class IA {
     constructor(level = 3) {
-        this.level = Math.max(1, Math.min(10, Number(level) || 1));
+        this.level = Math.max(1, Math.min(100, Number(level) || 1));
         this.depth = this.level <= 2 ? 1 : this.level <= 5 ? 2 : this.level <= 8 ? 3 : 4;
         this.maxMovesTested = 5 + this.level;
         this.lastResult = null;

@@ -2,7 +2,8 @@ import Game from "./game.js";
 let game;
 
 const init = `<label>Niveau de l'IA</label><br>
-        <input id="level" type="range" min="1" max="10" value="3" step="1">
+        <input id="level" type="range" min="1" max="500" value="3" step="1">
+        <div id="indicator">3</div>
         <br><br><br><br>
         <label>Vous allez jouer en tant que</label><br><br>
         <div>
@@ -26,6 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
     plateau.innerHTML = init;
+    document.getElementById("level").addEventListener("input", (e) => {
+        const indicator = document.getElementById("indicator");
+        indicator.textContent = e.target.value;
+    });
     document.getElementById("button").addEventListener("click", () => {
         plateau.id = "plateau";
         const iaLevel = Number(document.getElementById("level").value);

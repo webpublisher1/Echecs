@@ -1,6 +1,129 @@
 import Board from "./board.js";
 import IA, { getLegalMoves, isInCheck } from "./ia.js";
 
+/*
+    parties importante : 
+[Event "Partie locale"]
+[Site "Jeu d'échecs"]
+[Date "2026.10.12"]
+[Round "1"]
+[White "IA"]
+[Black "Noirs"]
+[Result "0-1"]
+
+1. Nf3 d5 2. Nc3 c5 3. a4 Nc6 4. e3 e5 5. d3 Nf6 6. h4 e4 7. dxe4 dxe4 8. Ng5 Qxd1+ 9. Kxd1 Bf5 10. Ke1 Bd6 11. Nb5 Be5 12. Bc4 h6 13. Nxf7 Rf8 14. Nfd6+ Bxd6 15. Nxd6+ Ke7 16. Nxf5+ Ke8 17. Nxg7+ Ke7 18. Ne6 Ke8 19. Nc7+ Ke7 20. Be2 Rad8 21. f3 exf3 22. Bxf3 Nb4 23. Bd1 Rxd1+ 24. Kxd1 Ng4 25. Re1 Nf2+ 26. Kd2 Ne4+ 27. Kd1 Rd8+ 28. Nd5+ Rxd5+ 29. Bd2 Rxd2+ 30. Kc1 Rxc2+ 31. Kb1 Nd2# 0-1
+
+
+[Event "Partie locale"]
+[Site "Jeu d'échecs"]
+[Date "2026.10.12"]
+[Round "1"]
+[White "IA"]
+[Black "Noirs"]
+[Result "0-1"]
+
+1. Nf3 d5 2. a4 c5 3. Nc3 Nc6 4. e3 e5 5. d3 Nf6 6. h4 e4 7. dxe4 dxe4 8. Ng5 Bf5 9. Qxd8+ Rxd8 10. Bb5 a6 11. Bxc6+ bxc6 12. f3 exf3 13. gxf3 Bd6 14. e4 Be6 15. Kf2 O-O 16. b3 c4 17. Nxe6 fxe6 18. Ba3 cxb3 19. Bxd6 Rxd6 20. e5 Rd2+ 21. Kg3 Nh5+ 22. Kg4 Rg2+ 23. Kxh5 Rf5# 0-1
+
+*/
+
+/**
+ * Etrange !!!
+ * 
+ * null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+game.js:113 null
+-> game.js:113 Échec et mat : les Blancs gagnent.
+-------> game.js:113 null !!!!!!!!!
+ */
+
 class Game {
     constructor(boardDir, iaLevel) {
         this.boardDir = boardDir;
@@ -21,7 +144,7 @@ class Game {
         this.updateStatus();
         if (this.board.turn === this.aiColor) {
             this.board.isIaPlaying = true;
-            window.setTimeout(() => this.playIaTurn(), 100);
+            window.setTimeout(() => this.playIaTurn(), 2000);
         }
     }
 
@@ -38,7 +161,7 @@ class Game {
         this.updateStatus();
         if (this.board.turn === this.aiColor) {
             this.board.isIaPlaying = true;
-            window.setTimeout(() => this.playIaTurn(), 200);
+            window.setTimeout(() => this.playIaTurn(), 1000);
         }
     }
 
@@ -83,8 +206,9 @@ class Game {
     }
 
     updateStatus(result = null) {
-        if (!this.status) return;
+        if (!this.status) {console.log("not this.status"); return;}
         const lastSearch = this.ia.lastResult;
+        console.log(result ? result : "null");
         if (result) {
             this.status.textContent = result;
             return;
