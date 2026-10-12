@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main      # ou la branche que tu utilises (ex: master)
+      - main
 
 jobs:
   build-and-deploy:
@@ -13,24 +13,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Use Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'    # adapte la version si besoin
+          node-version: 18
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build site
-        run: npm run build     # adapte la commande (ex: npm run build, hugo, etc.)
+        run: npm run build
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v3
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
 
-      - name: Upload artifact for Pages
-        uses: actions/upload-pages-artifact@v1
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public          # dossier généré à publier (change si nécessaire)
+          path: ./public
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
